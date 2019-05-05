@@ -8,12 +8,32 @@ import { AppRoutingModule } from './app.routing.module';
 import {EmployeeService} from './employee/employee.service';
 import {HttpClientModule} from "@angular/common/http";
 import {AddEmployeeComponent} from './employee/add-employee.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
+
+
+
+/*const appRoutes: Routes = [
+  { path: '', redirectTo: '/employees', pathMatch: 'full' },
+  {
+    path: 'employees',
+    component: EmployeeComponent;
+  },
+  {
+    path: 'employee-add',
+    component: CarEditComponent
+  },
+  {
+    path: 'employee-edit/:id',
+    component: CarEditComponent
+  }
+];*/
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EditEmployeeComponent
   ],
   imports: [
     BrowserModule,

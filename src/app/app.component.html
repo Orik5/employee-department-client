@@ -1,13 +1,18 @@
 <div class="container-fluid">
-<div class="col-md-offset-1">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-</div>
+  <div class="col-md-offset-1">
+    <h1>
+      Welcome to {{title}}!
+    </h1>
+  </div>
 
-<a routerLink="/employees">List Employees</a>
-<a style="margin-left:10px" routerLink="/add">Add Employee</a>
-<br/>
+
+  <div >
+    <button class="btn" a routerLink="/employees">List Employees</button>
+    <button class="btn" a style="margin-left:10px" routerLink="/add">Add Employee</button>
+  </div>
+
+
+  <br/>
+
+</div>
 <router-outlet></router-outlet>
-</div>
-

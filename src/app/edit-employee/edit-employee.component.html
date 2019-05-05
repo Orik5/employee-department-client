@@ -1,0 +1,40 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit User</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+      <label for="name">First Name:</label>
+      <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="active">Email address:</label>
+      <input type="checkbox" formControlName="active" placeholder="Active" name="active" class="form-control" id="active">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+    </div>
+
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
+
+<!--<form #employeeForm="ngForm" (ngSubmit)="save(employeeForm.value)">
+
+  <h2>{{employee.name ? 'Edit' : 'Add'}} Car</h2>
+
+  <input type="hidden" name="href" [(ngModel)]="employee.href">
+
+  <input  placeholder="Employee Name" [(ngModel)]="employee.name"
+         required name="name" >
+
+  <button  type="submit"
+          [disabled]="!employeeForm.form.valid">Save
+  </button>
+  <button type ="button" (click)="remove(employee.href)"
+          *ngIf="employee.href" type="button">Delete</button>
+  <a mat-button routerLink="/employees">Cancel</a>
+
+
+</form>-->

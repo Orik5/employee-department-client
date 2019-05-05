@@ -5,7 +5,9 @@ import { Employee } from '../models/employees.model';
 import { EmployeeService } from './employee.service';
 
 @Component({
-  templateUrl: './add-employee.component.html'
+  selector: 'app-root',
+  templateUrl: './add-employee.component.html',
+  styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent {
 
@@ -22,5 +24,6 @@ export class AddEmployeeComponent {
         });
 
   };
+
 
 }

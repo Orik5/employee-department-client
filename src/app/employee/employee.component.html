@@ -14,13 +14,32 @@
     <tbody>
     <tr *ngFor="let employee of employees">
       <td class="hidden">{{employee.id}}</td>
-      <td>{{employee.name}}</td>
+      <td>   <a mat-button [routerLink]="['/edit', employee.id]">{{employee.name}}</a></td>
       <td>{{employee.active}}</td>
       <td>{{employee.department}}</td>
-      <td>
-        <button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button>
-      </td>
+      <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button>
+      <td><button class="btn btn-warning"(click)="editEmployee(employee)"> Edit Employee</button>
+
+      <h3 mat-line>
+        <a mat-button [routerLink]="['/edit', employee.id]">{{employee.name}}</a>
+      </h3>
+
+
+
+      <!--<td>
+        <spring:url value="/employee/update/${employee.employeeId }" var="updateURL" />
+        <a class="btn btn-primary" href="${updateURL }" role="button">Update</a>
+      </td>-->
+     <!-- <td ><button  a [routerLink]="['edit', employee.id]"class="btn btn-warning" (click)="onEdit(employee)"> Edit Employee</button>
+      </td>-->
+    <!--  <div><a [routerLink]="['edit',employee.id]"></a></div>-->
+     <!-- <h3 mat-line>
+        <a mat-button [routerLink]="['/employee-edit', employee.id]">{{employee.name}}</a>
+      </h3>-->
     </tr>
+
+
     </tbody>
   </table>
 </div>
+

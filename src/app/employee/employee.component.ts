@@ -29,6 +29,16 @@ export class EmployeeComponent implements OnInit {
       .subscribe( data => {
         this.employees = this.employees.filter(u => u !== employee);
       });
+
+  }
+  editEmployee(employee: Employee): void {
+    localStorage.removeItem("editEmployeeId");
+    localStorage.setItem("editEmployeeId", employee.id.toString());
+    this.router.navigate(['edit']);
+  };
+
+  onEdit(employee:Employee) {
+    this.router.navigate([this.employeeService.editEmployee(employee), employee.id]);
   }
 
 }
