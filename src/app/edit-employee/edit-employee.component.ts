@@ -13,7 +13,7 @@ import {first} from "rxjs/operators";
 export class EditEmployeeComponent implements OnInit/*, OnDestroy*/ {
   employee: any = {};
 
-  sub: Subscription;
+
   editForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,private router: Router, private employeeService: EmployeeService/*private route: ActivatedRoute,

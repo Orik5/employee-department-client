@@ -20,11 +20,6 @@
       <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button>
       <td><button class="btn btn-warning"(click)="editEmployee(employee)"> Edit Employee</button>
 
-      <h3 mat-line>
-        <a mat-button [routerLink]="['/edit', employee.id]">{{employee.name}}</a>
-      </h3>
-
-
 
       <!--<td>
         <spring:url value="/employee/update/${employee.employeeId }" var="updateURL" />
