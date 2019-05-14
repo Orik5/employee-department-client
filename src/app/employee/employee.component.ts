@@ -9,6 +9,7 @@ import { EmployeeService } from './employee.service';
   templateUrl: './employee.component.html',
   styles: []
 })
+
 export class EmployeeComponent implements OnInit {
 
   employees: Employee[];

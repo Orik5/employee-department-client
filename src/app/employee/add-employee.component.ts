@@ -16,7 +16,7 @@ export class AddEmployeeComponent {
   constructor(private router: Router, private employeeService: EmployeeService) {
 
   }
-
+  validEmail:boolean = false;
   createEmployee(): void {
     this.employeeService.createEmployee(this.employee)
         .subscribe( data => {
@@ -24,6 +24,22 @@ export class AddEmployeeComponent {
         });
 
   };
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
 
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+  onChange(newValue) {
+    const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (validEmailRegEx.test(newValue)) {
+      this.validEmail = true;
+    }else {
+      this.validEmail = false;
+    }
+
+  }
 
 }

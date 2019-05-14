@@ -1,34 +1,94 @@
 <div class="col-md-6">
 
-  <h2 class="text-center">Add Employee</h2>
+  <h4 class="text-center">Add Employee</h4>
   <form>
-<td width="150">
-    <div class="form-group">
-      <label for="name">Employee Name:</label>
-      <input  [(ngModel)]="employee.name" placeholder="Employee name" name="name"
-             class="form-control" id="name" >
-    </div>
-</td>
+      <div class="form-group">
+        <label for ="name" class="name">*
+        </label>
+        <label for="name">first name:</label>
+        <input type="text"[(ngModel)]="employee.name" placeholder="first name" name="name"
+               class="form-control" id="name" required>
+      </div>
 
-    <div >
+    <div class="form-group">
+      <label for="surname">surname*:</label>
+      <input [(ngModel)]="employee.surname" placeholder="surname" name="surname"
+             class="form-control" id="surname">
+    </div>
+    <div class="form-group">
+      <label for="middleName">middle name*:</label>
+      <input [(ngModel)]="employee.middleName" placeholder="middle name" name="middleName"
+             class="form-control" id="middleName">
+    </div>
+    <div class="form-group">
+      <label for="profession">profession:</label>
+      <input [(ngModel)]="employee.profession" placeholder="profession" name="profession"
+             class="form-control" id="profession">
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfBirth">date of birth:</label>
+      <input [(ngModel)]="employee.dateOfBirth" placeholder="date of birth" name="dateOfBirth"
+             class="form-control" id="dateOfBirth">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">phone number*:</label>
+      <input type="text" (keypress)="keyPress($event)" minlength=13 maxlength=13 [(ngModel)]="employee.phoneNumber"
+             placeholder="+11 111 111 1111" name="phoneNumber"
+             class="form-control" id="phoneNumber">
+    </div>
+
+    <div class="form-group">
+      <label for="email">email:</label>
+      <!--<input type="email" class="form-control info"
+             placeholder="Email" formControlName="email" (ngModelChange)="onChange($event)">-->
+      <input type="email" (keypress)="onChange($event)"[(ngModel)]="employee.email" placeholder="email" name="email"
+             class="form-control info" id="email">
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block logBtn" [disabled]="!validEmail">ACCEDER</button>
+    <div class="form-group">
+      <label for="salary">salary:</label>
+      <input type="number" [(ngModel)]="employee.salary" placeholder="salary" name="salary"
+             class="form-control" id="salary">
+    </div>
+    <!--   <div class="form-group">
+         <label for="phoneNumber"> Phone number:</label>
+         <input type="text" [(ngModel)]="employee.phoneNumber"
+                placeholder="+380________" maxlength="13"pattern="[0-9]+" name="phoneNumber"
+                class="form-control" id="phoneNumber"></div>
+       <div>-->
+    <div>
       <label class="active" for="active">Active:</label>
-      <input class="checkbox" type="checkbox" [(ngModel)]="employee.active" placeholder="active"  name="active" value={true}
-             id="active"  normalize={normalizeBoolean}>
-     <!-- <Field name="active" component="input" type="radio" value={true} normalize={normalizeBoolean}/>
-        <Field name="active" component="input" type="radio" value={false} normalize={normalizeBoolean}/>-->
+      <input class="checkbox" type="checkbox" [(ngModel)]="employee.active" placeholder="active" name="active"
+             value={true}
+             id="active" normalize={normalizeBoolean}>
+      <!-- <Field name="active" component="input" type="radio" value={true} normalize={normalizeBoolean}/>
+         <Field name="active" component="input" type="radio" value={false} normalize={normalizeBoolean}/>-->
 
 
     </div>
     <td width="150">
-    <div class="form-group" >
-      <label for="department">Department :</label>
-      <input type="number" [(ngModel)]="employee.department" placeholder="Department"
-             name="department" class="form-control" id="department">
+      <div class="form-group">
+        <label for="department">Department :</label>
+        <input type="number" [(ngModel)]="employee.department" placeholder="Department"
+               name="department" class="form-control" id="department">
+      </div>
+    </td>
+    <div class="form-group">
+      <label for="photo">photo :</label>
+      <input type="file" [(ngModel)]="employee.photo" placeholder="photo"
+             name="photo" class="form-control" id="photo">
+    </div>
+    <div class="btn">
+      <button class="btn btn-success"  (click)="createEmployee()">Create</button>
     </div>
 
-    </td>
-   <button class="btn btn-success" (click)="createEmployee()">Create</button>
+
+
+
 
 
   </form>
+
 </div>

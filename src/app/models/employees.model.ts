@@ -1,7 +1,7 @@
 export class Employee {
   id: number;
   name: string;
-  firstName: string;
+  surname: string;
   middleName: string;
   profession: string;
   dateOfBirth: string;
@@ -10,4 +10,5 @@ export class Employee {
   salary: number;
   active: boolean;
   department: number;
+  photo: any;
 }

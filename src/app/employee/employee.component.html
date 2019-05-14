@@ -5,9 +5,15 @@
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>Name</th>
-      <th>Active</th>
-      <th>Department</th>
+      <th>first name</th>
+      <th>surname</th>
+      <th>middle name</th>
+      <th>profession</th>
+      <th>date of birth</th>
+      <th>phone number</th>
+      <th>email</th>
+      <th>active</th>
+      <th>department</th>
 
     </tr>
     </thead>
@@ -15,10 +21,19 @@
     <tr *ngFor="let employee of employees">
       <td class="hidden">{{employee.id}}</td>
       <td>   <a mat-button [routerLink]="['/edit', employee.id]">{{employee.name}}</a></td>
+      <td>{{employee.surname}}</td>
+      <td>{{employee.middleName}}</td>
+      <td>{{employee.profession}}</td>
+      <td>{{employee.dateOfBirth}}</td>
+      <td>{{employee.phoneNumber}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.salary}}</td>
       <td>{{employee.active}}</td>
       <td>{{employee.department}}</td>
-      <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button>
+
       <td><button class="btn btn-warning"(click)="editEmployee(employee)"> Edit Employee</button>
+
+      <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button>
 
 
       <!--<td>
