@@ -2,13 +2,13 @@
 
   <h4 class="text-center">Add Employee</h4>
   <form>
-      <div class="form-group">
-        <label for ="name" class="name">*
-        </label>
-        <label for="name">first name:</label>
-        <input type="text"[(ngModel)]="employee.name" placeholder="first name" name="name"
-               class="form-control" id="name" required>
-      </div>
+    <div class="form-group">
+      <label for="name" class="name">*
+      </label>
+      <label for="name">first name:</label>
+      <input type="text" [(ngModel)]="employee.firstName" placeholder="first name" name="name"
+             class="form-control" id="name">
+    </div>
 
     <div class="form-group">
       <label for="surname">surname*:</label>
@@ -28,7 +28,7 @@
 
     <div class="form-group">
       <label for="dateOfBirth">date of birth:</label>
-      <input [(ngModel)]="employee.dateOfBirth" placeholder="date of birth" name="dateOfBirth"
+      <input type="date" [(ngModel)]="employee.dateOfBirth" placeholder="date of birth" name="dateOfBirth"
              class="form-control" id="dateOfBirth">
     </div>
     <div class="form-group">
@@ -42,11 +42,9 @@
       <label for="email">email:</label>
       <!--<input type="email" class="form-control info"
              placeholder="Email" formControlName="email" (ngModelChange)="onChange($event)">-->
-      <input type="email" (keypress)="onChange($event)"[(ngModel)]="employee.email" placeholder="email" name="email"
+      <input type="email" (keypress)="onChange($event)" [(ngModel)]="employee.email" placeholder="email" name="email"
              class="form-control info" id="email">
     </div>
-
-    <button type="submit" class="btn btn-primary btn-block logBtn" [disabled]="!validEmail">ACCEDER</button>
     <div class="form-group">
       <label for="salary">salary:</label>
       <input type="number" [(ngModel)]="employee.salary" placeholder="salary" name="salary"
@@ -71,7 +69,7 @@
     <td width="150">
       <div class="form-group">
         <label for="department">Department :</label>
-        <input type="number" [(ngModel)]="employee.department" placeholder="Department"
+        <input type="search" [(ngModel)]="employee.department" placeholder="Department"
                name="department" class="form-control" id="department">
       </div>
     </td>
@@ -81,12 +79,8 @@
              name="photo" class="form-control" id="photo">
     </div>
     <div class="btn">
-      <button class="btn btn-success"  (click)="createEmployee()">Create</button>
+      <button class="btn btn-success" (click)="createEmployee()">Create</button>
     </div>
-
-
-
-
 
 
   </form>

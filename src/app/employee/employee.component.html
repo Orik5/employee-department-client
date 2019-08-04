@@ -12,15 +12,17 @@
       <th>date of birth</th>
       <th>phone number</th>
       <th>email</th>
+      <th>salary</th>
       <th>active</th>
       <th>department</th>
 
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let employee of employees">
+    <tbody >
+    <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 10, currentPage: p }">
       <td class="hidden">{{employee.id}}</td>
-      <td>   <a mat-button [routerLink]="['/edit', employee.id]">{{employee.name}}</a></td>
+      <!--<td>   <a mat-button [routerLink]="['/edit', employee.id]">{{employee.name}}</a></td>-->
+      <td>{{employee.firstName}}</td>
       <td>{{employee.surname}}</td>
       <td>{{employee.middleName}}</td>
       <td>{{employee.profession}}</td>
@@ -51,5 +53,32 @@
 
     </tbody>
   </table>
-</div>
+  <ul class="pagination pagination-sm">
+
+
+    <li class="page-item"><a class="page-link" href='http://localhost:8080/department/init/1'>1</a></li>
+    <li class="page-item"><a class="page-link" href='http://localhost:8080/department/init/2'>2</a></li>
+    <li class="page-item"><a class="page-link" href='http://localhost:8080/department/init/3'>3</a></li>
+    <li class="page-item"><a class="page-link" href='http://localhost:8080/department/init/4'>4</a></li>
+    <li class="page-item"><a class="page-link" href='http://localhost:8080/department/init/5'>5</a></li>
+    <li class="page-item"><a class="page-link" href='http://localhost:8080/department/init/6'>6</a></li>
+  </ul>
+  </div>
+  <!--<ul>-->
+    <!--<li *ngFor="let employee of employees | paginate: { itemsPerPage: 5, currentPage: p }"> ... </li>-->
+  <!--</ul>-->
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  <pagination-controls
+    [maxSize]="maxSize"
+    [directionLinks]="directionLinks"
+    [autoHide]="autoHide"
+    [responsive]="responsive"
+    [previousLabel]="labels.previousLabel"
+    [nextLabel]="labels.nextLabel"
+    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+    [screenReaderPageLabel]="labels.screenReaderPageLabel"
+    [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+    (pageChange)="onPageChange($event)"></pagination-controls>
 

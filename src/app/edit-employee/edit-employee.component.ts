@@ -15,29 +15,36 @@ export class EditEmployeeComponent implements OnInit/*, OnDestroy*/ {
 
 
   editForm: FormGroup;
+
   constructor(
-    private formBuilder: FormBuilder,private router: Router, private employeeService: EmployeeService/*private route: ActivatedRoute,
+    private formBuilder: FormBuilder, private router: Router, private employeeService: EmployeeService/*private route: ActivatedRoute,
               private router: Router,
               private employeeService: EmployeeService*/) {
   }
+
   ngOnInit() {
     let employeeId = localStorage.getItem("editEmployeeId");
-    if(!employeeId) {
+    if (!employeeId) {
       alert("Invalid action.")
       this.router.navigate(['employees']);
       return;
     }
+
     this.editForm = this.formBuilder.group({
       id: [],
-      name: ['',Validators.required],
-      active: ['',Validators.required],
-      department: ['',Validators.required]
-     /* email: ['', Validators.required],
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required]*/
+      surname: ['', Validators.required],
+      middleName: ['', Validators.required],
+      profession: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', Validators.required],
+      salary: ['', Validators.required],
+      active: ['', Validators.required],
+      department: ['', Validators.required]
     });
     this.employeeService.get(employeeId)
-      .subscribe( data => {
+      .subscribe(data => {
         this.editForm.setValue(data);
       });
   }
@@ -53,47 +60,48 @@ export class EditEmployeeComponent implements OnInit/*, OnDestroy*/ {
           alert(error);
         });
   }
- /* ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.employeeService.get(id).subscribe((employee: any) => {
-          if (employee) {
-            this.employee = employee;
-            this.employee.href = employee._links.self.href;
-           // this.employeeService.get(employee.name).subscribe(url => employee.giphyUrl = url);
-          } else {
-            console.log(`Car with id '${id}' not found, returning to list`);
-            this.gotoList();
-          }
-        });
-      }
-    });
-  }
+
+  /* ngOnInit() {
+     this.sub = this.route.params.subscribe(params => {
+       const id = params['id'];
+       if (id) {
+         this.employeeService.get(id).subscribe((employee: any) => {
+           if (employee) {
+             this.employee = employee;
+             this.employee.href = employee._links.self.href;
+            // this.employeeService.get(employee.name).subscribe(url => employee.giphyUrl = url);
+           } else {
+             console.log(`Car with id '${id}' not found, returning to list`);
+             this.gotoList();
+           }
+         });
+       }
+     });
+   }
 
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+   ngOnDestroy() {
+     this.sub.unsubscribe();
+   }
 
-  gotoList() {
-    this.router.navigate(['/employees']);
-  }
+   gotoList() {
+     this.router.navigate(['/employees']);
+   }
 
-  save(form: NgForm) {
-    this.employeeService.save(form).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
+   save(form: NgForm) {
+     this.employeeService.save(form).subscribe(result => {
+       this.gotoList();
+     }, error => console.error(error));
+   }
 
-  remove(href) {
-    this.employeeService.remove(href).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-  edit(form: NgForm) {
-    this.employeeService.editEmployee(form).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }*/
+   remove(href) {
+     this.employeeService.remove(href).subscribe(result => {
+       this.gotoList();
+     }, error => console.error(error));
+   }
+   edit(form: NgForm) {
+     this.employeeService.editEmployee(form).subscribe(result => {
+       this.gotoList();
+     }, error => console.error(error));
+   }*/
 }

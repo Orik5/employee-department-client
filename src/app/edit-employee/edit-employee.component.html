@@ -2,18 +2,46 @@
   <h2 class="text-center">Edit User</h2>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
-
     <div class="form-group">
-      <label for="name">First Name:</label>
-      <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+      <label for="firstName">First Name:</label>
+      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
     </div>
     <div class="form-group">
-      <label for="active">Email address:</label>
-      <input type="checkbox" formControlName="active" placeholder="Active" name="active" class="form-control" id="active">
+      <label for="surname">Surname:</label>
+      <input formControlName="surname" placeholder="Surname" name="surname" class="form-control" id="surname">
     </div>
     <div class="form-group">
-      <label for="lastName">Last Name:</label>
-      <input formControlName="department" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+      <label for="middleName">Middle name:</label>
+      <input formControlName="surname" placeholder="Middle name" name="middleName" class="form-control" id="middleName">
+    </div>
+    <div class="form-group">
+      <label for="surname">Profession:</label>
+      <input formControlName="profession" placeholder="Profession" name="profession" class="form-control" id="profession">
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of birth:</label>
+      <input type ="date"formControlName="dateOfBirth" placeholder="Date of birth" name="dateOfBirth" class="form-control" id="dateOfBirth">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone number :</label>
+      <input type ="number"formControlName="phoneNumber" placeholder="phone number" name="phoneNumber" class="form-control" id="phoneNumber">
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type ="email"formControlName="email" placeholder="email" name="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary: </label>
+      <input type ="number"formControlName="salary" placeholder="Salary" name="salary" class="form-control" id="salary">
+    </div>
+    <div class="form-group">
+      <label for="active">Active:</label>
+      <input type="checkbox" formControlName="active" placeholder="Active" name="active" class="form-control"
+             id="active">
+    </div>
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <input type ="search" formControlName="department" placeholder="Department:" name="department" class="form-control" id="department">
     </div>
 
     <button class="btn btn-success">Update</button>

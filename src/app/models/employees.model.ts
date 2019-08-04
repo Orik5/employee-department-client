@@ -1,6 +1,6 @@
 export class Employee {
   id: number;
-  name: string;
+  firstName: string;
   surname: string;
   middleName: string;
   profession: string;
@@ -9,6 +9,6 @@ export class Employee {
   email: string;
   salary: number;
   active: boolean;
-  department: number;
+  department: string;
   photo: any;
 }

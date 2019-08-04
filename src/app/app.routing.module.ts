@@ -4,13 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 import {AddEmployeeComponent} from './employee/add-employee.component';
 import {EditEmployeeComponent} from "./edit-employee/edit-employee.component";
+import {LoginComponent} from "./login/login.component";
+import {HomeComponent} from "./home/home.component";
 
 
 const routes: Routes = [
 /*  { path: 'employees', component: EmployeeComponent },
   { path: 'add', component: AddEmployeeComponent },
   { path: 'edit', component: EmployeeEditComponent }*/
-  { path: '', redirectTo: '/employees', pathMatch: 'full' },
+//  { path: '', component: LoginComponent },
+ { path: '', redirectTo: '/employees', pathMatch: 'full' },
   {
     path: 'employees',
     component: EmployeeComponent
@@ -22,8 +25,10 @@ const routes: Routes = [
   ,
   {
     path: 'edit',
-    component: EditEmployeeComponent
-  }
+    component: EditEmployeeComponent}
+ //  },
+ //
+ // {path : 'login', component : LoginComponent}
 ];
 
 

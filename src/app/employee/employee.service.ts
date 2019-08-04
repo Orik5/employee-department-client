@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {Employee} from '../models/employees.model';
+import {PageModel} from "../models/page.model";
 
 import {e} from "@angular/core/src/render3";
 import {Observable} from "rxjs";
@@ -15,13 +16,17 @@ const httpOptions = {
 export class EmployeeService {
 
   constructor(private http: HttpClient) {
+
   }
-
+// function (page: PageModel) {
+//     this.page;
+// }
   private baseUrl = 'http://localhost:8080/department/employees';
-
+  private pageUrl ='http://localhost:8080/department/init';
   //private userUrl = '/api';
 
   public getEmployees() {
+
     return this.http.get<Employee[]>(this.baseUrl);
   }
 
@@ -37,6 +42,9 @@ export class EmployeeService {
     return this.http.put(this.baseUrl, +'/' + employee.id);
   }
 
+  public getPage(page) {
+    return this.http.get<PageModel[]>(this.pageUrl + '/' + 1);
+  }
 
   getAll(): Observable<any> {
     return this.http.get(this.baseUrl );
